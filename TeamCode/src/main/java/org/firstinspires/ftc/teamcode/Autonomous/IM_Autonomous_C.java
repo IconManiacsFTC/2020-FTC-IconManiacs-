@@ -34,7 +34,6 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.HardwareMap.IMDriveBot;
-import org.firstinspires.ftc.teamcode.HardwareMap.IMHardwareBot;
 
 //import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 // List where other files are located that are used in this OpMode
@@ -45,11 +44,11 @@ import org.firstinspires.ftc.teamcode.HardwareMap.IMHardwareBot;
  *
  */
 // CHAWKS: Name it something useful!
-@Autonomous(name="NewAutonomous", group="RedTest")
+@Autonomous(name="IM Autonomous C", group="RedTest")
 // CHAWKS: What does @Disabled mean? what happens if we remove it?
 //@Disabled
 
-public class NewAutonomous extends LinearOpMode {
+public class IM_Autonomous_C extends LinearOpMode {
 
     IMDriveBot bot = new IMDriveBot();
     /*
@@ -60,7 +59,7 @@ public class NewAutonomous extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
 
-
+        final float power = 1;
          // Initialize the drive system variables.
          // The init() method of the hardware class does all the work here
 
@@ -90,25 +89,42 @@ public class NewAutonomous extends LinearOpMode {
         // waits for driver to hit start
         waitForStart();
         // turns off the claw and arm
-/*
-        bot.moveForward(1,105);
 
-        sleep(500);
+        //moves forward
+        bot.moveForward(power, 100);
 
-        bot.moveBackward(1, 75);
+        bot.strafeLeft(power, 50);
 
-        bot.moveForward(1,105);
+        // DROP THE WOBBLE GOAL
 
-        bot.strafeRight(1,70);
+        sleep(1000);
 
-        bot.strafeLeft(1,70);
+        // strafes right
+        bot.strafeRight(power, 45);
 
-        bot.turnLeft(1, 90);
-*/
-        bot.turnRight(1,10000000);
+        // move backwards
+        bot.moveBackward(power, 15);
 
+        //SHOOT THE POWER SHOTS
 
+        sleep(1000);
 
+        bot.moveBackward(power,65);
+
+        //strafe left
+        bot.strafeLeft(power, 30);
+
+        // GRIP ON THE WOBBLE GOAL
+
+        // LIFT THE ARM
+
+        sleep(1000);
+
+        bot.moveForward(power, 70);
+
+        bot.strafeLeft(power, 30);
+
+        // DROPS THE WOBBLE GOAL
 
     }
 
